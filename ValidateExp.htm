@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>    
+    <!--<script src="Scripts/mathVal.js" type="text/javascript"></script>-->
+    <script src="Scripts/mathVal.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        #exp
+        {
+            width: 1106px;
+        }
+    </style>
+    
+</head>
+<body>    
+    <input type="text" id = "exp" value="(#(#a = b#OR#c = d#)#AND#(#e = f#)#OR#(#k = t#AND#)#AND" onkeyup ="removeSep();" />
+    <br /><br />
+    <label id="exp2"></label>
+    <br /><br />
+    <input type="button" onclick="checkValidate();" value="Check" />
+    <br /><br />
+    <label id="res" ></label>
+</body>
+
+<script>
+    
+    //init
+    var exp = document.getElementById("exp").value;
+    document.getElementById("exp2").innerHTML = exp.split('#').join(" ");
+
+    function removeSep() {
+        var exp = document.getElementById("exp").value;
+        document.getElementById("exp2").innerHTML = exp.split('#').join(" ");
+
+        document.getElementById("res").innerHTML = expVal.validateLogicExpession(exp, '#');
+    }
+    function checkValidate() {
+        var exp = document.getElementById("exp").value;
+        document.getElementById("res").innerHTML = expVal.validateLogicExpession(exp, '#');
+    }    
+    </script>
+</html>
